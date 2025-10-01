@@ -1,0 +1,55 @@
+* {
+    font-family: 'lexend';
+}
+
+.login .heading p {
+    font-size: 12px;
+}
+
+.login .heading img {
+    border-right: 1px solid lightgray;
+    padding-right: 15px;
+    margin-right: 15px;
+}
+
+.login .input-container {
+    position: relative;
+    width: 100%;
+}
+
+.login .animated-input {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px 0;
+    background-color: transparent;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.login .input-label {
+    display: block;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+.login .input-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #3498db;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.login .input-container:focus-within::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
