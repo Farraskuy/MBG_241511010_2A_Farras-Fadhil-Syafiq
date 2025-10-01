@@ -51,8 +51,9 @@ class AuthController extends BaseController
             ->first();
 
         // Cek user & password
-        if (!$user || !password_verify($password, $user['password'])) {
-            $errorMessage = ['error' => 'name/Email atau password salah'];
+        // Cek user & password
+        if (!$user || md5($password) !== $user['password']) {
+            $errorMessage = ['error' => 'Name/Email atau password salah'];
 
             if ($this->request->isAJAX()) {
                 return response()->setJSON($errorMessage);
@@ -61,10 +62,11 @@ class AuthController extends BaseController
             return redirect()->back()->withInput()->with('error', $errorMessage['error']);
         }
 
+
         // Simpan ke session
         session()->set('users', [
             'id'        => $user['id'],
-            'name' => $user['name'],
+            'name'      =>   $user['name'],
             'email'     => $user['email'],
             'role'      => $user['role'],
             'logged_in' => true

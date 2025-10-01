@@ -49,10 +49,22 @@
                     Dashboard
                 </a>
             </li>
-            <?php if (session()->has('users') && session()->get('users')['role'] == 'admin'): ?>
-                <li class="nav-item">
+            <?php if (session()->has('users') && session()->get('users')['role'] == 'gudang'): ?>
+                <!-- <li class="nav-item">
                     <a href="<?= base_url('/users') ?>" class="nav-link <?= service('uri')->getSegment(1) == 'users' ? 'active' : '' ?>" aria-current="page">
                         Users
+                    </a>
+                </li> -->
+                <li class="nav-item">
+                    <a href="<?= base_url('/bahan-baku') ?>" class="nav-link <?= service('uri')->getSegment(1) == 'bahan-baku' ? 'active' : '' ?>" aria-current="page">
+                        Bahan Baku
+                    </a>
+                </li>
+            <?php endif ?>
+            <?php if (session()->has('users') && session()->get('users')['role'] == 'dapur'): ?>
+                <li class="nav-item">
+                    <a href="<?= base_url('/permintaan-bahan') ?>" class="nav-link <?= service('uri')->getSegment(1) == 'permintaan-bahan' ? 'active' : '' ?>" aria-current="page">
+                        Permintaan Bahan
                     </a>
                 </li>
             <?php endif ?>
