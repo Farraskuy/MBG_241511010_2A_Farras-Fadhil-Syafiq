@@ -16,8 +16,8 @@ List Users
 <div class="d-flex flex-wrap justify-content-between w-100 mb-3 gap-1">
     <a href="<?= base_url('users/add') ?>" class="btn btn-success fw-semibold"> Add User</a>
     <form class="d-flex gap-3 search" method="get">
-        <input value="<?= service('request')->getGet('keyword') ?>" 
-               type="text" name="keyword" class="form-control form-text m-0" placeholder="Search user...">
+        <input value="<?= service('request')->getGet('keyword') ?>"
+            type="text" name="keyword" class="form-control form-text m-0" placeholder="Search user...">
         <button type="submit" class="btn btn-primary text-nowrap">Search</button>
     </form>
 </div>
@@ -41,9 +41,8 @@ List Users
         <thead class="table-light">
             <tr>
                 <th>ID</th>
-                <th>Full Name</th>
-                <th>Email</th>
                 <th>Username</th>
+                <th>Email</th>
                 <th>Role</th>
                 <th class="text-end">Action</th>
             </tr>
@@ -53,9 +52,8 @@ List Users
                 <?php foreach ($users as $user): ?>
                     <tr>
                         <td><?= esc($user['id']) ?></td>
-                        <td><?= esc($user['full_name']) ?></td>
+                        <td><?= esc($user['name']) ?></td>
                         <td><?= esc($user['email']) ?></td>
-                        <td><?= esc($user['username']) ?></td>
                         <td><span class="badge bg-secondary"><?= esc($user['role']) ?></span></td>
                         <td class="text-end">
                             <div class="d-flex gap-2 flex-wrap justify-content-end">
@@ -80,7 +78,7 @@ List Users
                                         </div>
                                         <div class="modal-body">
                                             Are you sure you want to delete user
-                                            <strong>"<?= esc($user['full_name']) ?>"</strong>?
+                                            <strong>"<?= esc($user['name']) ?>"</strong>?
                                         </div>
                                         <form method="post" action="<?= base_url("users/delete/{$user['id']}") ?>">
                                             <input type="hidden" name="_method" value="DELETE">

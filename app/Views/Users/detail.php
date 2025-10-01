@@ -21,15 +21,15 @@ Detail User
             <tbody>
                 <tr>
                     <th style="width: 200px;">Full Name</th>
-                    <td><?= esc($user['full_name']) ?></td>
+                    <td><?= esc($user['name']) ?></td>
                 </tr>
                 <tr>
                     <th>Email</th>
                     <td><?= esc($user['email']) ?></td>
                 </tr>
                 <tr>
-                    <th>Username</th>
-                    <td><?= esc($user['username']) ?></td>
+                    <th>User</th>
+                    <td><?= esc($user['name']) ?></td>
                 </tr>
                 <tr>
                     <th>Role</th>

@@ -16,13 +16,13 @@ Add User
     <?= csrf_field() ?>
 
     <div class="mb-3">
-        <label for="full_name" class="form-label">Full Name</label>
+        <label for="name" class="form-label">Full Name</label>
         <input type="text"
-            class="form-control <?= isset($validation['full_name']) ? 'is-invalid' : '' ?>"
-            id="full_name" name="full_name" value="<?= old('full_name') ?>">
-        <?php if (isset($validation['full_name'])): ?>
+            class="form-control <?= isset($validation['name']) ? 'is-invalid' : '' ?>"
+            id="name" name="name" value="<?= old('name') ?>">
+        <?php if (isset($validation['name'])): ?>
             <div class="invalid-feedback">
-                <?= $validation['full_name'] ?>
+                <?= $validation['name'] ?>
             </div>
         <?php endif; ?>
     </div>
@@ -40,13 +40,13 @@ Add User
     </div>
 
     <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
+        <label for="name" class="form-label">Name</label>
         <input type="text"
-            class="form-control <?= isset($validation['username']) ? 'is-invalid' : '' ?>"
-            id="username" name="username" value="<?= old('username') ?>">
-        <?php if (isset($validation['username'])): ?>
+            class="form-control <?= isset($validation['name']) ? 'is-invalid' : '' ?>"
+            id="name" name="name" value="<?= old('name') ?>">
+        <?php if (isset($validation['name'])): ?>
             <div class="invalid-feedback">
-                <?= $validation['username'] ?>
+                <?= $validation['name'] ?>
             </div>
         <?php endif; ?>
     </div>

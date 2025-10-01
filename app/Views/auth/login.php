@@ -30,11 +30,11 @@ Masuk ke akun
         <?= csrf_field() ?>
 
         <div class="form-floating mb-3">
-            <input type="text" id="username" name="username" class="form-control rounded-3 <?= isset($validation['username']) ? 'is-invalid' : '' ?>" placeholder="Username atau email" value="<?= old("username", "") ?>">
-            <label for="username">Username / Email</label>
-            <?php if (isset($validation['username'])):  ?>
+            <input type="text" id="name" name="name" class="form-control rounded-3 <?= isset($validation['name']) ? 'is-invalid' : '' ?>" placeholder="name atau email" value="<?= old("name", "") ?>">
+            <label for="name">Name / Email</label>
+            <?php if (isset($validation['name'])):  ?>
                 <div class="invalid-feedback">
-                    <?= $validation['username'] ?>
+                    <?= $validation['name'] ?>
                 </div>
             <?php endif ?>
         </div>

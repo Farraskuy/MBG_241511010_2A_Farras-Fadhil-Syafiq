@@ -20,14 +20,14 @@ Update User
     <input type="hidden" name="_method" value="PUT">
 
     <div class="mb-3">
-        <label for="full_name" class="form-label">Full Name</label>
+        <label for="name" class="form-label">Full Name</label>
         <input type="text"
-            class="form-control <?= isset($validation['full_name']) ? 'is-invalid' : '' ?>"
-            id="full_name" name="full_name" 
-            value="<?= old('full_name', $user['full_name']) ?>">
-        <?php if (isset($validation['full_name'])): ?>
+            class="form-control <?= isset($validation['name']) ? 'is-invalid' : '' ?>"
+            id="name" name="name" 
+            value="<?= old('name', $user['name']) ?>">
+        <?php if (isset($validation['name'])): ?>
             <div class="invalid-feedback">
-                <?= $validation['full_name'] ?>
+                <?= $validation['name'] ?>
             </div>
         <?php endif; ?>
     </div>
@@ -46,14 +46,14 @@ Update User
     </div>
 
     <div class="mb-3">
-        <label for="username" class="form-label">Username</label>
+        <label for="name" class="form-label">Name</label>
         <input type="text"
-            class="form-control <?= isset($validation['username']) ? 'is-invalid' : '' ?>"
-            id="username" name="username" 
-            value="<?= old('username', $user['username']) ?>">
-        <?php if (isset($validation['username'])): ?>
+            class="form-control <?= isset($validation['name']) ? 'is-invalid' : '' ?>"
+            id="name" name="name" 
+            value="<?= old('name', $user['name']) ?>">
+        <?php if (isset($validation['name'])): ?>
             <div class="invalid-feedback">
-                <?= $validation['username'] ?>
+                <?= $validation['name'] ?>
             </div>
         <?php endif; ?>
     </div>

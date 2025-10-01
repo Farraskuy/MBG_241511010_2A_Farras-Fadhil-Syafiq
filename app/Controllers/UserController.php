@@ -16,9 +16,9 @@ class UserController extends BaseController
 
             if ($search && $search != '') {
                 $users = $userModel
-                    ->like('username', $search)
+                    ->like('name', $search)
                     ->orLike('email', $search)
-                    ->orLike('full_name', $search)
+                    ->orLike('name', $search)
                     ->findAll();
             } else {
                 $users = $userModel->findAll();
@@ -58,8 +58,8 @@ class UserController extends BaseController
         $data = $this->request->getPost();
 
         $rules = [
-            'full_name' => 'required|min_length[3]|max_length[255]',
-            'username'  => 'required|is_unique[users.username]',
+            'name' => 'required|min_length[3]|max_length[255]',
+            'name'  => 'required|is_unique[users.name]',
             'email'     => 'required|valid_email|is_unique[users.email]',
             'password'  => 'required|min_length[8]'
         ];
@@ -70,8 +70,8 @@ class UserController extends BaseController
 
         $userModel = new Users();
         $userModel->insert([
-            'full_name' => $data['full_name'],
-            'username'  => $data['username'],
+            'name' => $data['name'],
+            'name'  => $data['name'],
             'email'     => $data['email'],
             'password'  => password_hash($data['password'], PASSWORD_DEFAULT),
             'role'      => $data['role'] ?? 'student',
@@ -107,8 +107,8 @@ class UserController extends BaseController
         $data = $this->request->getPost();
 
         $rules = [
-            'full_name' => 'required|min_length[3]|max_length[255]',
-            'username'  => "required|is_unique[users.username,id,{$id}]",
+            'name' => 'required|min_length[3]|max_length[255]',
+            'name'  => "required|is_unique[users.name,id,{$id}]",
             'email'     => "required|valid_email|is_unique[users.email,id,{$id}]",
         ];
 
@@ -117,8 +117,8 @@ class UserController extends BaseController
         }
 
         $userModel->update($id, [
-            'full_name' => $data['full_name'],
-            'username'  => $data['username'],
+            'name' => $data['name'],
+            'name'  => $data['name'],
             'email'     => $data['email'],
             'role'      => $data['role'] ?? $user['role'],
         ]);

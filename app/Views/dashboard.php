@@ -8,7 +8,7 @@ Dashboard
 
 
 <h2 class="fw-bold">Dashboard</h2>
-<p class="text-muted">Selamat datang, <strong><?= session('users')['username'] ?></strong></p>
+<p class="text-muted">Selamat datang, <strong><?= session('users')['name'] ?></strong></p>
 
 
 <?= $this->endSection() ?>

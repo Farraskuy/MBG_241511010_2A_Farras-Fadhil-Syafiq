@@ -21,14 +21,14 @@ class AuthController extends BaseController
             ? json_decode($this->request->getBody(), true)
             : $this->request->getPost();
 
-        $username = $requestData['username'] ?? null;
+        $name = $requestData['name'] ?? null;
         $password = $requestData['password'] ?? null;
 
         // Validasi input
         $validation = $this->validateData(
             $requestData,
             [
-                'username' => 'required',
+                'name' => 'required',
                 'password' => 'required',
             ],
             [
@@ -46,13 +46,13 @@ class AuthController extends BaseController
         // Cari user hanya di tabel `users`
         $usersModel = new Users();
         $user = $usersModel
-            ->where('username', $username)
-            ->orWhere('email', $username)
+            ->where('name', $name)
+            ->orWhere('email', $name)
             ->first();
 
         // Cek user & password
         if (!$user || !password_verify($password, $user['password'])) {
-            $errorMessage = ['error' => 'Username/Email atau password salah'];
+            $errorMessage = ['error' => 'name/Email atau password salah'];
 
             if ($this->request->isAJAX()) {
                 return response()->setJSON($errorMessage);
@@ -64,8 +64,7 @@ class AuthController extends BaseController
         // Simpan ke session
         session()->set('users', [
             'id'        => $user['id'],
-            'full_name' => $user['full_name'],
-            'username'  => $user['username'],
+            'name' => $user['name'],
             'email'     => $user['email'],
             'role'      => $user['role'],
             'logged_in' => true
