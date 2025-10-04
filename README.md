@@ -32,6 +32,7 @@ Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah ber
     
     ## Struktur Data Digunakan
     PERLU DIPERHATIKAN PADA RELASI CONSTRAINT YANG DI SEDIAKAN MENGALAMI ANOMALI DIMANA FORENKEY MENGARAH KE PRIMARY KEY DALAM BEBERAPA TABEL:
+    
     HOW TO FIX?
     ```bash
     ALTER TABLE `permintaan` DROP FOREIGN KEY `permintaan_ibfk_1`;
@@ -61,6 +62,33 @@ Untuk menjalankan proyek ini di lingkungan lokal Anda, ikuti langkah-langkah ber
 
 Anda dapat menggunakan akun berikut untuk masuk ke dalam sistem dan melakukan pengujian:
 
-### Akun Gudang (Admin)
--   **Username**: `admin`
--   **Password**: `admin`
+# ============================
+# Role: gudang
+# ============================
+email: siti.gudang@mbg.id
+pass : pass123
+
+email: rahmat.gudang@mbg.id
+pass : pass123
+
+email: lina.gudang@mbg.id
+pass : pass123
+
+email: anton.gudang@mbg.id
+pass : pass123
+
+# ============================
+# Role: dapur
+# ============================
+email: dewi.dapur@mbg.id
+pass : pass123
+
+email: andi.dapur@mbg.id
+pass : pass123
+
+email: surya.dapur@mbg.id
+pass : pass123
+
+email: yanti.dapur@mbg.id
+pass : pass123
+
