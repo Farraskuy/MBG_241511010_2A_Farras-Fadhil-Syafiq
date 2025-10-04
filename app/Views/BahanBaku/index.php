@@ -15,11 +15,11 @@ List Bahan Baku
 
 <div class="d-flex flex-wrap justify-content-between w-100 mb-3 gap-1">
     <a href="<?= base_url('bahan-baku/create') ?>" class="btn btn-success fw-semibold"> Add Bahan Baku</a>
-    <form class="d-flex gap-3 search" method="get">
+    <!-- <form class="d-flex gap-3 search" method="get">
         <input value="<?= service('request')->getGet('keyword') ?>"
             type="text" name="keyword" class="form-control form-text m-0" placeholder="Search user...">
         <button type="submit" class="btn btn-primary text-nowrap">Search</button>
-    </form>
+    </form> -->
 </div>
 
 <!-- Pesan sukses -->

@@ -72,15 +72,27 @@
     <main class="p-4 pt-3 flex-grow-1 position-relative overflow-auto vh-100">
         <nav class="navbar navbar-expand-lg bg-white position-sticky py-2 rounded-4 mb-3 shadow" style="left: 0; right: 0; top: 0; z-index: 999;">
             <div class="container-fluid">
+                <!-- Sidebar Toggle -->
                 <button class="btn btn-outline-light btn-toggle-sidebar" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="d-flex">
-                    <button class="btn btn-outline-danger" data-bs-target="#modal-logout" data-bs-toggle="modal" type="submit">Logout</button>
+                <!-- Profile Dropdown -->
+                <div class="dropdown ms-auto">
+                    <button class="btn d-flex align-items-center dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://ui-avatars.com/api/?name=<?= urlencode(session()->get('users')['name']) ?>&background=random&color=fff&size=32"
+                            class="rounded-circle me-2" width="32" height="32" alt="profile">
+                        <span class="fw-semibold"><?= esc(session()->get('users')['name']) ?></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li>
+                            <button data-bs-toggle="modal" data-bs-target="#modal-logout" class="dropdown-item text-danger">Logout</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
+
 
         <div class="modal fade" id="modal-logout" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
@@ -110,6 +122,7 @@
     </main>
 
 
+    <script src="<?= base_url("assets/js/popper.min.js") ?>"></script>
     <script src="<?= base_url("assets/js/bootstrap.min.js") ?>"></script>
 
     <!-- <script src="<?= base_url("assets/js/global-script.js") ?>"></script> -->

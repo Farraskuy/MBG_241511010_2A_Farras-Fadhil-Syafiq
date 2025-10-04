@@ -25,20 +25,33 @@ class AuthFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (!session()->has('users') && is_array($arguments) && in_array('login', $arguments)) {
+        $session = session();
+
+        // Handel: Guest yang harus login
+        if (!$session->has('users') && is_array($arguments) && in_array('login', $arguments)) {
             return redirect()->to('login');
         }
 
-        if (session()->has('users') && is_array($arguments) && in_array('guest', $arguments)) {
+        // Handle: User yang sudah login tidak boleh ases halaman dengan filter ini
+        if ($session->has('users') && is_array($arguments) && in_array('guest', $arguments)) {
             return redirect()->to('/');
         }
 
+        // Jika user sudah login
         if (
-            session()->has('users') && is_array($arguments)
-            && !in_array(session()->get('users')['role'], $arguments)
+            $session->has('users') && is_array($arguments)
+            && !in_array($session->get('users')['role'], $arguments)
             && !in_array('login', $arguments)
             && !in_array('guest', $arguments)
         ) {
+            $currentUrl  = current_url();   
+            $previousUrl = previous_url();
+
+            // kalau previous = current → redirect ke home
+            if ($previousUrl === $currentUrl) {
+                return redirect()->to('/');
+            }
+
             return redirect()->back();
         }
     }
