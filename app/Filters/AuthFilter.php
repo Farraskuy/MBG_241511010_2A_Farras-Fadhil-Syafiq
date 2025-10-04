@@ -34,9 +34,10 @@ class AuthFilter implements FilterInterface
         }
 
         if (
-            session()->has('users') && is_array($arguments) &&
-            ((session()->get('users')['role'] != 'admin' && in_array('admin', $arguments)) ||
-                (session()->get('users')['role'] != 'student' && in_array('student', $arguments)))
+            session()->has('users') && is_array($arguments)
+            && !in_array(session()->get('users')['role'], $arguments)
+            && !in_array('login', $arguments)
+            && !in_array('guest', $arguments)
         ) {
             return redirect()->back();
         }

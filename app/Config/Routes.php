@@ -44,7 +44,7 @@ $routes->group('', ['filter' => 'auth:login'], function () use ($routes) {
     $routes->post("/permintaan-bahan/reject/(:num)", "PermintaanBahanController::reject/$1", ['filter' => 'auth:gudang']);
     $routes->post("/permintaan-bahan/approve/(:num)", "PermintaanBahanController::approve/$1", ['filter' => 'auth:gudang']);
 
-    $routes->group('/permintaan-bahan', ['filter' => 'auth:gudang'], function () use ($routes) {
+    $routes->group('/permintaan-bahan', ['filter' => 'auth:gudang,abc'], function () use ($routes) {
         $routes->get("/", "PermintaanBahanController::index");
         $routes->get("create", "PermintaanBahanController::create");
         $routes->post("add-bahan/(:num)", "PermintaanBahanController::addBahan/$1");

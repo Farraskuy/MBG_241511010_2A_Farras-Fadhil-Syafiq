@@ -69,8 +69,8 @@
         </ul>
     </aside>
 
-    <main class="p-4 pt-3 flex-grow-1 position-relative overflow-auto">
-        <nav class="navbar navbar-expand-lg bg-white position-sticky py-2 rounded-4 mb-3" style="left: 0; right: 0; top: 0;">
+    <main class="p-4 pt-3 flex-grow-1 position-relative overflow-auto vh-100">
+        <nav class="navbar navbar-expand-lg bg-white position-sticky py-2 rounded-4 mb-3 shadow" style="left: 0; right: 0; top: 0; z-index: 999;">
             <div class="container-fluid">
                 <button class="btn btn-outline-light btn-toggle-sidebar" type="button">
                     <span class="navbar-toggler-icon"></span>
