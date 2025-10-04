@@ -61,13 +61,11 @@
                     </a>
                 </li>
             <?php endif ?>
-            <?php if (session()->has('users') && session()->get('users')['role'] == 'dapur'): ?>
-                <li class="nav-item">
-                    <a href="<?= base_url('/permintaan-bahan') ?>" class="nav-link <?= service('uri')->getSegment(1) == 'permintaan-bahan' ? 'active' : '' ?>" aria-current="page">
-                        Permintaan Bahan
-                    </a>
-                </li>
-            <?php endif ?>
+            <li class="nav-item">
+                <a href="<?= base_url('/permintaan-bahan') ?>" class="nav-link <?= service('uri')->getSegment(1) == 'permintaan-bahan' ? 'active' : '' ?>" aria-current="page">
+                    Permintaan Bahan
+                </a>
+            </li>
         </ul>
     </aside>
 

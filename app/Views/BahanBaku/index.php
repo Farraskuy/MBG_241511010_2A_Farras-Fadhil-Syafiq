@@ -88,9 +88,14 @@ List Bahan Baku
                                 <a href="<?= base_url("bahan-baku/detail/{$bahan_baku['id']}") ?>"
                                     class="btn btn-info btn-sm fw-semibold">Detail</a>
 
-                                <?php if ($today >= $exp): ?>
+
+                                <?php if ($today <= $exp): ?>
+
                                     <a href="<?= base_url("bahan-baku/update/{$bahan_baku['id']}") ?>"
                                         class="btn btn-warning btn-sm fw-semibold">Edit</a>
+                                <?php endif ?>
+
+                                <?php if ($today >= $exp): ?>
 
                                     <!-- Delete Trigger -->
                                     <button class="btn btn-danger btn-sm fw-semibold"

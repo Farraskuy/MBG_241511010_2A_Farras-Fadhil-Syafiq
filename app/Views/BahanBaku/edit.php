@@ -12,7 +12,7 @@ Update Bahan Baku
     <a href="<?= base_url("bahanbaku") ?>" class="btn btn-secondary">Back</a>
 </div>
 
-<form action="<?= base_url("bahanbaku/update/{$bahanbaku['id']}") ?>" method="post">
+<form action="<?= base_url("bahan-baku/update/{$bahanbaku['id']}") ?>" method="post">
     <?= csrf_field() ?>
     <input type="hidden" name="_method" value="PUT">
 
