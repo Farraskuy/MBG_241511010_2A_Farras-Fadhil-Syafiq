@@ -64,6 +64,7 @@ Anda dapat menggunakan akun berikut untuk masuk ke dalam sistem dan melakukan pe
 
 ### Role: gudang
 ============================
+
 email: siti.gudang@mbg.id
 pass : pass123
 
@@ -78,6 +79,7 @@ pass : pass123
 
 ### Role: dapur
 ============================
+
 email: dewi.dapur@mbg.id
 pass : pass123
 
