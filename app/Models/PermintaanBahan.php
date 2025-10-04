@@ -12,7 +12,7 @@ class PermintaanBahan extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['pemohon_id', 'tanggal_masak', 'menu_makanan', 'jummlah_porsi', 'status', 'created_at'];
+    protected $allowedFields    = ['pemohon_id', 'tanggal_masak', 'menu_makan', 'jumlah_porsi', 'status', 'alasan_penolakan', 'created_at'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

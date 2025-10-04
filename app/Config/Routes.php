@@ -41,18 +41,21 @@ $routes->group('', ['filter' => 'auth:login'], function () use ($routes) {
         $routes->delete("delete/(:num)", "BahanBakuController::destroy/$1");
     });
 
-    $routes->post("/permintaan-bahan/reject/(:num)", "PermintaanBahanController::reject/$1", ['filter' => 'auth:gudang']);
-    $routes->post("/permintaan-bahan/approve/(:num)", "PermintaanBahanController::approve/$1", ['filter' => 'auth:gudang']);
-
-    $routes->group('/permintaan-bahan', ['filter' => 'auth:gudang,abc'], function () use ($routes) {
+    $routes->group('/permintaan-bahan', function () use ($routes) {
         $routes->get("/", "PermintaanBahanController::index");
-        $routes->get("create", "PermintaanBahanController::create");
-        $routes->post("add-bahan/(:num)", "PermintaanBahanController::addBahan/$1");
-        $routes->post("remove-bahan/(:num)", "PermintaanBahanController::removeBahan/$1");
-        $routes->post("create", "PermintaanBahanController::store");
         $routes->get("detail/(:num)", "PermintaanBahanController::detail/$1");
-        $routes->get("update/(:num)", "PermintaanBahanController::edit/$1");
-        $routes->put("update/(:num)", "PermintaanBahanController::update/$1");
-        $routes->delete("delete/(:num)", "PermintaanBahanController::destroy/$1");
+
+        $routes->group('', ['filter' => 'auth:gudang'], function () use ($routes) {
+            $routes->post("reject/(:num)", "PermintaanBahanController::reject/$1");
+            $routes->post("approve/(:num)", "PermintaanBahanController::approve/$1");
+        });
+
+        $routes->group('', ['filter' => 'auth:dapur'], function () use ($routes) {
+            $routes->get("create", "PermintaanBahanController::create");
+            $routes->post("add-bahan/(:num)", "PermintaanBahanController::addBahan/$1");
+            $routes->post("remove-bahan/(:num)", "PermintaanBahanController::removeBahan/$1");
+            $routes->post("create", "PermintaanBahanController::store");
+            $routes->delete("delete/(:num)", "PermintaanBahanController::destroy/$1");
+        });
     });
 });

@@ -22,9 +22,7 @@ class BahanBakuController extends BaseController
         $item  = $model->find($id);
 
         if (!$item) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(
-                "Bahan Baku dengan ID $id tidak ditemukan"
-            );
+            return redirect()->back()->with('error', "Bahan Baku dengan ID $id tidak ditemukan");
         }
 
         return view('bahanbaku/detail', [
@@ -76,9 +74,7 @@ class BahanBakuController extends BaseController
         $item  = $model->find($id);
 
         if (!$item) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(
-                "Bahan Baku dengan ID $id tidak ditemukan"
-            );
+            return redirect()->back()->with('error', "Bahan Baku dengan ID $id tidak ditemukan");
         }
 
         return view('bahanbaku/edit', [

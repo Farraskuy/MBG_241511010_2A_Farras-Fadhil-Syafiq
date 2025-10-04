@@ -12,14 +12,31 @@ Add Permintaan Bahan
     <a href="<?= base_url("permintaan-bahan") ?>" class="btn btn-secondary">Back</a>
 </div>
 
+<!-- Pesan sukses -->
+<?php if (session()->getFlashdata('success')): ?>
+    <div class="alert alert-success mb-3">
+        <?= session()->getFlashdata('success') ?>
+    </div>
+<?php endif; ?>
+
+<!-- Pesan error -->
+<?php if (session()->getFlashdata('error')): ?>
+    <div class="alert alert-danger mb-3">
+        <?= session()->getFlashdata('error') ?>
+    </div>
+<?php endif; ?>
+
+
 <!-- Tabel Bahan yang dipilih -->
 <div class="mb-5">
     <div class="d-flex justify-content-between mb-3">
         <h5 class="fw-bold">Daftar Bahan</h5>
-        <button type="button" class="btn btn-primary btn-sm"
-            data-bs-toggle="modal" data-bs-target="#modal-bahan">
-            Tambah Bahan
-        </button>
+
+            <button type="button" class="btn btn-primary btn-sm"
+                data-bs-toggle="modal" data-bs-target="#modal-bahan">
+                Tambah Bahan
+            </button>
+
     </div>
 
     <table class="table table-bordered">
@@ -123,13 +140,15 @@ Add Permintaan Bahan
                     </thead>
                     <tbody>
                         <?php foreach ($bahan_baku as $bahan): ?>
+                            <?php $bahanBakuTerpilih = session()->get('bahan_terpilih') ?? []; ?>
                             <tr>
                                 <td><?= esc($bahan['nama']) ?></td>
                                 <td><?= esc($bahan['kategori']) ?></td>
-                                <td><?= esc($bahan['jumlah']) ?></td>
+                                <td><?= esc(isset($bahanBakuTerpilih[$bahan['id']]) ? $bahan['jumlah'] - $bahanBakuTerpilih[$bahan['id']]['jumlah'] : $bahan['jumlah']) ?></td>
                                 <td><?= esc($bahan['satuan']) ?></td>
                                 <td>
                                     <button type="button"
+                                        <?= $bahan['jumlah'] <= 0 ? 'disabled' : '' ?>
                                         class="btn btn-sm btn-success"
                                         data-bs-toggle="modal"
                                         data-bs-target="#modal-input-bahan"
