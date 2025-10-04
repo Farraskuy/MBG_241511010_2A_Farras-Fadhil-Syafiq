@@ -66,29 +66,37 @@ Anda dapat menggunakan akun berikut untuk masuk ke dalam sistem dan melakukan pe
 ============================
 
 email: siti.gudang@mbg.id
+
 pass : pass123
 
 email: rahmat.gudang@mbg.id
+
 pass : pass123
 
 email: lina.gudang@mbg.id
+
 pass : pass123
 
 email: anton.gudang@mbg.id
+
 pass : pass123
 
 ### Role: dapur
 ============================
 
 email: dewi.dapur@mbg.id
+
 pass : pass123
 
 email: andi.dapur@mbg.id
+
 pass : pass123
 
 email: surya.dapur@mbg.id
+
 pass : pass123
 
 email: yanti.dapur@mbg.id
+
 pass : pass123
 
